@@ -109,10 +109,33 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/system',
+    component: Layout,
+    meta: {
+      title: 'system',
+      icon: 'guide'
+    },
+    redirect: '/system/role',
+    children: [
+      {
+        path: 'org',
+        component: () => import('@/views/system/org'),
+        name: 'org',
+        meta: { title: 'org', icon: 'guide' }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/system/role'),
+        name: 'role',
+        meta: { title: 'role', icon: 'guide' }
+      }
+    ]
+  },
+  {
     path: '/profile',
     component: Layout,
     redirect: '/profile/index',
-    hidden: true,
+    // hidden: true,
     children: [
       {
         path: 'index',
